@@ -1,4 +1,4 @@
-# flutter_shop
+# flutter_star
 
 A new Flutter application.
 
