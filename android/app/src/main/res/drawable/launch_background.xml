@@ -4,9 +4,11 @@
     <item android:drawable="@android:color/white" />
 
     <!-- You can insert your own image assets here -->
-    <!-- <item>
+    <item
+        android:bottom="60dp"
+        android:gravity="bottom">
         <bitmap
-            android:gravity="center"
-            android:src="@mipmap/launch_image" />
-    </item> -->
+            android:gravity="bottom|center"
+            android:src="@mipmap/icon_star_logo" />
+    </item>
 </layer-list>

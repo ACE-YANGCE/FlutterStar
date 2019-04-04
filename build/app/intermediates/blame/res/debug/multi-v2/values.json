@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yangce/Documents/workspace/flutter_star/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/Levis/Developer/Workspaces/AndroidStudio/FlutterStar/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/yangce/Documents/workspace/flutter_star/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/Levis/Developer/Workspaces/AndroidStudio/FlutterStar/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
