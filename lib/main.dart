@@ -55,68 +55,69 @@ class _St extends State<Page> {
   Widget build(BuildContext c) {
     return Scaffold(
         body: Stack(children: <Widget>[
-          Image.asset('img/bg.jpg', width: _w, fit: BoxFit.fill),
-          Container(child: CustomPaint(painter: StarCanvas(_w, _h, p, s, st))),
-          wid(1, 2),
-          wid(1, 1),
-          wid(0, 1),
-          GestureDetector(onPanDown: (d) {
-            p.add(Offset(d.globalPosition.dx, d.globalPosition.dy));
-            setState(() {});
-          }, onPanUpdate: (d) {
-            o = Offset(d.globalPosition.dx, d.globalPosition.dy);
-          }, onPanEnd: (d) {
-            p.add(o);
-            setState(() {});
+      Image.asset('img/bg.jpg', width: _w, fit: BoxFit.fill),
+      Container(child: CustomPaint(painter: StarCanvas(_w, _h, p, s, st))),
+      wid(1, 2),
+      wid(1, 1),
+      wid(0, 1),
+      GestureDetector(onPanDown: (d) {
+        p.add(Offset(d.globalPosition.dx, d.globalPosition.dy));
+        setState(() {});
+      }, onPanUpdate: (d) {
+        o = Offset(d.globalPosition.dx, d.globalPosition.dy);
+      }, onPanEnd: (d) {
+        p.add(o);
+        setState(() {});
 
-            double sz, ez;
-            for (int i = 0; i < p.length - 1; i += 2) {
-              if (p[i] != null && p[i + 1] != null) {
-                bool st = false, en = false;
-                double w, h;
-                for (int j = 0; j < s.length; j++) {
-                  w = s[j][0] * _w;
-                  h = s[j][1] * _h;
+        double sz, ez;
+        for (int i = 0; i < p.length - 1; i += 2) {
+          if (p[i] != null && p[i + 1] != null) {
+            bool st = false, en = false;
+            double w, h;
+            for (int j = 0; j < s.length; j++) {
+              w = s[j][0] * _w;
+              h = s[j][1] * _h;
 
-                  if ((p[i].dx - w).abs() <= 20 && (p[i].dy - h).abs() <= 20) {
-                    p[i] = Offset(w, h);
-                    sz = s[j][2];
-                    st = true;
-                  }
-                  if ((p[i + 1].dx - w).abs() <= 20 &&
-                      (p[i + 1].dy - h).abs() <= 20) {
-                    p[i + 1] = Offset(w, h);
-                    ez = s[j][2];
-                    en = true;
-                  }
-                }
-                if (!st) p[i] = null;
-                if (!en) p[i + 1] = null;
+              if ((p[i].dx - w).abs() <= 20 && (p[i].dy - h).abs() <= 20) {
+                p[i] = Offset(w, h);
+                sz = s[j][2];
+                st = true;
               }
-
-              if (p[i] != null && p[i + 1] != null && p[i] != p[i + 1])
-                set..add('${sz}|${ez}')..add('${ez}|${sz}');
-            }
-            int n = 0;
-            if (set.length == l.length) {
-              for (String e in set) {
-                for (int i = 0; i < l.length; i++) if (e == l[i]) n += 1;
+              if ((p[i + 1].dx - w).abs() <= 20 &&
+                  (p[i + 1].dy - h).abs() <= 20) {
+                p[i + 1] = Offset(w, h);
+                ez = s[j][2];
+                en = true;
               }
             }
-            if (n > 0 && n == l.length)
-              Scaffold.of(c)
-                  .showSnackBar(SnackBar(content: Text(da['tip'].toString())));
-          })
-        ]));
+            if (!st) p[i] = null;
+            if (!en) p[i + 1] = null;
+          }
+
+          if (p[i] != null && p[i + 1] != null && p[i] != p[i + 1])
+            set..add('${sz}|${ez}')..add('${ez}|${sz}');
+        }
+        int n = 0;
+        if (set.length == l.length) {
+          for (String e in set) {
+            for (int i = 0; i < l.length; i++) if (e == l[i]) n += 1;
+          }
+        }
+        if (n > 0 && n == l.length)
+          Scaffold.of(c)
+              .showSnackBar(SnackBar(content: Text(da['tip'].toString())));
+      })
+    ]));
   }
 
   Widget wid(l, b) {
     return Container(
         alignment: Alignment(l == 0 ? -1.0 : 1.0, 1.0),
-        margin: EdgeInsets.fromLTRB(32, 0, 32, 32.0 + 84 * (b - 1)),
+        margin: EdgeInsets.fromLTRB(16, 0, 16, 16.0 + 84 * (b - 1)),
         child: GestureDetector(
             child: Container(
-                width: 24,
+                width: 56,
+                padding: EdgeInsets.all(16),
                 child: Image.asset(
                     'img/${l == 0 ? n : (b == 1 ? 'reset' : 'ram')}.png')),
             onTap: () {
