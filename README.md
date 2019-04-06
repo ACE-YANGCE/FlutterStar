@@ -1,16 +1,15 @@
-# flutter_star
+# FlutterStar
 
-A new Flutter application.
+This application is a demo of constellation connection game based on Flutter. The name of the application, Clain, comes from the word "Constellation". It uses Canvas to achieve a connection between two points.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The program is suitable for Android (except AndroidX)
 
-A few resources to get you started if this is your first Flutter project:
+Please update packages path by `flutter packages get` before running the `flutter run --release` command.
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+## Success examples
+![](https://trello-attachments.s3.amazonaws.com/5c865dac5f49b78df52c99e4/5c89c96acd0f86839ad54c3c/c78a849b72f7d3a05709ead1ccd64c73/43345.jpg)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# Thanks
+Thanks to FlutterCreate for giving my friends and me the motivation to start a small program. Our final vision is beyond what this demo can show. We will implement some animations, graph searches, and other unfinished features. Thanks again to FlutterCreate.
